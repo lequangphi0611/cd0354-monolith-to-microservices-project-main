@@ -15,7 +15,6 @@ script:
   - docker tag udagram-reverseproxy $DOCKER_USERNAME/udagram-reverseproxy:v1
   - docker tag udagram-frontend $DOCKER_USERNAME/udagram-frontend:v1
 
-```bash
 ## Push
 ## Assuming DOCKER_PASSWORD and DOCKER_USERNAME are set in the Travis repository settings
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
