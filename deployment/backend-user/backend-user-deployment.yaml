@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-user
+  labels:
+    app: backend-user
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend-user
+  template:
+    metadata:
+      labels:
+        app: backend-user
+    spec:
+      containers:
+        - name: backend-user-container
+          image: philq061199/udagram-api-user:v1
+          env:
+            - name: POSTGRES_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: cd0354-monolith-to-microservices--configmap
+                  key: POSTGRES_HOST
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: cd0354-monolith-to-microservices--configmap
+                  key: POSTGRES_DB
+            - name: POSTGRES_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: cd0354-monolith-to-microservices--secret-configmap
+                  key: POSTGRES_USERNAME
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: cd0354-monolith-to-microservices--secret-configmap
+                  key: POSTGRES_PASSWORD
+            - name: AWS_BUCKET
+              valueFrom:
+                configMapKeyRef:
+                  name: cd0354-monolith-to-microservices--configmap
+                  key: AWS_BUCKET
+            - name: AWS_REGION
+              valueFrom:
+                configMapKeyRef:
+                  name: cd0354-monolith-to-microservices--configmap
+                  key: AWS_REGION
+            - name: AWS_PROFILE
+              valueFrom:
+                configMapKeyRef:
+                  name: cd0354-monolith-to-microservices--configmap
+                  key: AWS_PROFILE    
+            - name: JWT_SECRET
+              valueFrom:
+                configMapKeyRef:
+                  name: cd0354-monolith-to-microservices--configmap
+                  key: JWT_SECRET
+            - name: URL
+              valueFrom:
+                configMapKeyRef:
+                  name: cd0354-monolith-to-microservices--configmap
+                  key: URL
+          ports:
+            - containerPort: 80

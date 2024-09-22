@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cd0354-monolith-to-microservices--configmap
+  namespace: default
+data:
+  POSTGRES_HOST: cd0354-monolith-to-microservices-postgresql.c29qedcvb3mg.us-east-1.rds.amazonaws.com
+  POSTGRES_DB: postgres
+  AWS_BUCKET: arn:aws:s3:::cd0354-monolith-to-microservices--bucket
+  AWS_REGION: us-east-1
+  AWS_PROFILE: default
+  JWT_SECRET: g2OwzXl3cH3MggBqi22MlA==
+  URL: http://localhost:8100
