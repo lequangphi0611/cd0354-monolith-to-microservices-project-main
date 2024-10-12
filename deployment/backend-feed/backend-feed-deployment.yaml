@@ -64,7 +64,7 @@ spec:
                   name: cd0354-monolith-to-microservices--configmap
                   key: URL
           ports:
-            - containerPort: 80
+            - containerPort: 8080
           resources:
             limits:
               cpu: 500m

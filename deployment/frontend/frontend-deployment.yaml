@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: frontend-container
-          image: philq061199/udagram-frontend:v3
+          image: philq061199/udagram-frontend:v8
           ports:
             - containerPort: 8100

@@ -3,10 +3,12 @@ kind: Service
 metadata:
   name: frontend
   labels:
-    app: frontend
+    service: frontend
 spec:
+  type: ClusterIP
   selector:
-    run: frontend
+    app: frontend
   ports:
     - protocol: TCP
       port: 8100
+      targetPort: 80
